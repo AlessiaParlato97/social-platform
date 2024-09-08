@@ -46,9 +46,8 @@ Relazioni:
 Un tag può essere associato a molti post (tag -> One to many -> post);
 
 table: Like
-- like_id (PK, UNIQUE, NOT NULL) → Identificatore univoco per il like.
-- user_id (FK, NOT NULL) → Chiave esterna che fa riferimento a User.user_id.
-- post_id (FK, NOT NULL) → Chiave esterna che fa riferimento a Post.post_id.
+- user_id (PK,FK, NOT NULL) → Chiave esterna che fa riferimento a User.user_id.
+- post_id (PK,FK, NOT NULL) → Chiave esterna che fa riferimento a Post.post_id.
 
 Relazioni:
 Un utente può mettere un like a molti post,
@@ -68,8 +67,8 @@ e un post può ricevere più commenti (post -> One to many -> comment);
 
 
 table: Post_Tag
-- post_id (FK, NOT NULL) → Chiave esterna che fa riferimento a Post.post_id.
-- tag_id (FK, NOT NULL) → Chiave esterna che fa riferimento a Tag.tag_id.
+- post_id (PK,FK, NOT NULL) → Chiave esterna che fa riferimento a Post.post_id.
+- tag_id (PK,FK, NOT NULL) → Chiave esterna che fa riferimento a Tag.tag_id.
 
 
 Vincoli:
