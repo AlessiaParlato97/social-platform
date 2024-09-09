@@ -66,7 +66,7 @@ Un utente può creare più commenti, (user -> One to many -> comment);
 e un post può ricevere più commenti (post -> One to many -> comment);
 
 
-table: Post_Tag
+table: Post_Tag (tabella di appoggio)
 - post_id (PK,FK, NOT NULL) → Chiave esterna che fa riferimento a Post.post_id.
 - tag_id (PK,FK, NOT NULL) → Chiave esterna che fa riferimento a Tag.tag_id.
 
@@ -75,6 +75,3 @@ Vincoli:
 UNIQUE garantisce l’unicità di campi come username, email, e tag_name.
 NOT NULL garantisce che i campi obbligatori come content e media_url non siano vuoti.
 PK (Primary Key) e FK (Foreign Key) sono utilizzate per garantire l’integrità referenziale.
-Relazioni M:N:
-La relazione tra Post e Tag è M
-e può essere risolta con una tabella intermedia chiamata Post_Tag.
