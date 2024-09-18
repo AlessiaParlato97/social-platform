@@ -13,7 +13,7 @@ table: User (Utente)
 Relazioni:
 Un utente può creare molti post (user -> One to many -> post);
 Un utente può mettere molti like su post (user -> One to many -> like);
-Un utente può aggiungere commenti ai post (user -> One to many -> comment);
+Un utente può aggiungere più commenti ai post (user -> One to many -> comment);
 
 
 table: Post
@@ -36,10 +36,11 @@ table: Media
 - media_type (ENUM: 'photo', 'video', NOT NULL) → Tipo di media (foto o video).
 
 Relazioni:
-Un media appartiene a un solo post (media -> One to one -> post);
+Diversi media posso essere presenti in un solo post (post -> One to many -> media);
 
 table: Tag
 - tag_id (PK, UNIQUE, NOT NULL) → Identificatore univoco per il tag.
+- post_id (FK, UNIQUE, NOT NULL) → Chiave esterna che fa riferimento a Post. post_id.
 - tag_name (VARCHAR, UNIQUE, NOT NULL) → Nome del tag.
 
 Relazioni:
@@ -51,8 +52,7 @@ table: Like
 
 Relazioni:
 Un utente può mettere un like a molti post,
-ma ogni post può ricevere un like solo una volta da uno specifico utente
-(Risoluzione con tabella Post_Tag);
+ma ogni post può ricevere un like solo una volta da uno specifico utente;
 
 table: Comment (Commento)
 - comment_id (PK, UNIQUE, NOT NULL) → Identificatore univoco per il commento.
@@ -64,11 +64,6 @@ table: Comment (Commento)
 Relazioni:
 Un utente può creare più commenti, (user -> One to many -> comment);
 e un post può ricevere più commenti (post -> One to many -> comment);
-
-
-table: Post_Tag (tabella di appoggio)
-- post_id (PK,FK, NOT NULL) → Chiave esterna che fa riferimento a Post.post_id.
-- tag_id (PK,FK, NOT NULL) → Chiave esterna che fa riferimento a Tag.tag_id.
 
 
 Vincoli:
