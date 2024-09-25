@@ -40,7 +40,7 @@ RIGHT JOIN medias m ON m.user_id = u.id
 GROUP BY u.id
 ORDER BY COUNT(m.id) DESC; 
 
-#Ordina gli utenti per totale di likes ricevuti nei loro post(25)
+#5.Ordina gli utenti per totale di likes ricevuti nei loro post(25)
 SELECT l.post_id, COUNT(*)
 FROM likes l
 LEFT JOIN posts p ON p.id = l.post_id
