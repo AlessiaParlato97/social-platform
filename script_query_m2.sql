@@ -25,13 +25,6 @@ FROM likes l
 LEFT JOIN posts p ON p.id = l.post_id
 GROUP BY l.post_id;
 
-SELECT SUM(numero_likes) AS totale_likes
-FROM (
-    SELECT COUNT(*) AS numero_likes
-    FROM likes l 
-    LEFT JOIN posts p ON p.id = l.post_id
-    GROUP BY l.post_id
-) AS conta;
 
 #4.Ordina agli utenti per il numero di media caricati(25)
 SELECT u.id, COUNT(m.id)
